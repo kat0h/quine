@@ -1,0 +1,17 @@
+#!ruby
+a = readlines
+
+l=a.map{|i|i.length}.max
+
+b = []
+a.each { |i|
+  b.push((i.gsub("\n","")+" "*l)[0,l-1].split(""))
+}
+h = b.size
+w = b[0].size
+(0..w-1).reverse_each { |i|
+  (0..h-1).each { |j|
+    print b[j][i]
+  }
+  print "\n"
+}

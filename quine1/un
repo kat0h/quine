@@ -1,0 +1,20 @@
+$s="*"*999
+b="BAhsK248AAw/gOEBDOA9wAPA8AMYHmAAAwY8AAx/gOEBAxzAwQPAsA8YHhjgATw8AAz7gOFhAA7AwwPAMB8YHgLwAHg8AAzjg+EZAA+AxwPAMHwY3gH4AHg8AAyDh+EfgA+AxwPAMPgY/gP4AHg8AAwDn+F9gA+AxwPAMPAZng/4AHg8AAwDvuHxgA+AxwPAMMAfHh/wAHg4AAwD+OHhAw+AhwfAMAAfHj7gADz4AAYD8OHBBxzAAR4wMAAeHviAAw7gxwED4OEBH3BwAPgH/ACcf/wH/gM="
+;n=Marshal.load(b.unpack("m")[0]).to_s(2).reverse.scan(/.{1,#{84}}/).join("\n").split("\n")
+
+e="eval$s=%w"<<39<<($s*3)
+c=0
+o=""
+n.each{|i|
+  i.split("").each{|j|
+    if j=="1" then
+      o+=e[c]
+      c+=1
+    else
+      o=o<<32
+    end
+  }
+  o=o<<10
+}
+o[-7,6]=""<<39<<".join"
+puts o
